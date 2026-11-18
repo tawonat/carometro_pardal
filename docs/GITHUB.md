@@ -1,28 +1,24 @@
-# Publicar no GitHub preservando o histórico
+# GitHub — clonar e contribuir
 
-O ZIP de entrega traz o código e um `historico.git.bundle`. O bundle contém o repositório Git completo, com commits feitos ao longo da implementação. Ele não contém `.env`, banco local, node_modules ou fotos reais.
+Repositório oficial: [tawonat/carometro_pardal](https://github.com/tawonat/carometro_pardal).
 
-## Recuperar os commits e enviar
+## Baixar o projeto
 
-Instale Git. Em uma pasta **fora da pasta extraída**, execute (ajuste o caminho do bundle conforme onde o extraiu):
+Instale Git e execute:
 
 ```bash
-git clone CAMINHO/DA/PASTA/elo-carometro/historico.git.bundle elo-carometro-git
-cd elo-carometro-git
+git clone https://github.com/tawonat/carometro_pardal.git
+cd carometro_pardal
 git log --oneline
 ```
 
-Crie no GitHub um repositório novo chamado `elo-carometro`, sem marcar README, licença ou .gitignore, pois esses arquivos/commits já existem no histórico. Escolha a visibilidade exigida pelo docente. Depois:
+Siga o README para instalar dependências, configurar MySQL e iniciar localmente. Não precisa importar o bundle para usar o repositório publicado.
 
-```bash
-git remote remove origin
-git remote add origin https://github.com/SEU_USUARIO/elo-carometro.git
-git push -u origin main
-```
+## Origem do histórico
 
-O Git pode pedir autenticação pelo navegador ou gerenciador de credenciais. Não coloque tokens no código ou no README. A URL da página do repositório será a entrega pedida pelo docente. `SEU_USUARIO` é um marcador e precisa ser substituído; não é um link já publicado.
+As sete etapas reais da implementação foram importadas em commits sequenciais. Cada mensagem registra o hash do commit original. A importação recriou os hashes e metadados dos commits publicados; os arquivos de cada etapa foram preservados. Há também um commit inicial de preparação da importação e a atualização desta documentação com a URL definitiva.
 
-O bundle não fica dentro do próprio histórico, para não criar uma cópia recursiva do repositório. Ele acompanha apenas a distribuição ZIP.
+O ZIP entregue antes da publicação contém `historico.git.bundle` com os sete commits originais. Esse arquivo é uma alternativa para consultar a origem localmente; não deve ser usado para sobrescrever o histórico publicado. Não simulem datas antigas nem atribuam a integrantes alterações que ainda não fizeram.
 
 ## Trabalhar com o grupo
 

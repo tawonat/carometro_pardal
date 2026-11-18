@@ -175,22 +175,20 @@ O SQL completo está em [database/schema.sql](database/schema.sql), e o dicioná
 
 ## GitHub e histórico de desenvolvimento
 
-O pacote inclui `historico.git.bundle` com os commits das etapas reais desta implementação: configuração, modelo MySQL, API, interface, correções/testes e documentação. O histórico não simula dias de trabalho nem contribuições dos integrantes. Para continuar com esse histórico:
+Repositório: [tawonat/carometro_pardal](https://github.com/tawonat/carometro_pardal).
+
+Para baixar o código com o histórico:
 
 ```bash
-git clone historico.git.bundle elo-carometro
-cd elo-carometro
+git clone https://github.com/tawonat/carometro_pardal.git
+cd carometro_pardal
 ```
 
-```bash
-# Depois de clonar o bundle e entrar na pasta clonada:
-git remote remove origin
-# Crie no GitHub um repositório vazio, sem README, e use a URL dele:
-git remote add origin https://github.com/SEU_USUARIO/elo-carometro.git
-git push -u origin main
-```
+Depois, siga a instalação local descrita acima. A pasta clonada contém o package.json, os scripts e toda a documentação.
 
-Se estiver usando diretamente o ZIP sem recuperar o histórico, consulte [docs/GITHUB.md](docs/GITHUB.md). Durante o desenvolvimento do grupo, façam commits pequenos após mudanças reais e preencham [docs/CONTRIBUICOES.md](docs/CONTRIBUICOES.md) com o trabalho efetivamente feito por cada integrante.
+As sete etapas da implementação foram importadas em sequência, preservando os arquivos de cada etapa e a mensagem original. Cada commit de importação informa o hash do commit de origem. Os hashes dos commits publicados são novos porque a importação foi feita pela API do GitHub; o ZIP de entrega mantém o `historico.git.bundle` original.
+
+Durante o desenvolvimento do grupo, façam commits pequenos após mudanças reais e preencham [docs/CONTRIBUICOES.md](docs/CONTRIBUICOES.md) com o trabalho efetivamente feito por cada integrante. [Guia para clonar e contribuir](docs/GITHUB.md).
 
 ## Resolução de problemas
 
