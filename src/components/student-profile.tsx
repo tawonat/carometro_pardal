@@ -1,0 +1,8 @@
+'use client';
+import { Pencil, Trash2, Mail, GraduationCap, Hash, ArrowUpRight } from 'lucide-react';
+import type { Student } from '@/lib/types';
+import { photoUrl } from '@/lib/client';
+import { Badge, Modal } from './ui';
+export default function StudentProfile({ student: s, onClose, onEdit, onDelete }: { student: Student; onClose: () => void; onEdit: () => void; onDelete: () => void }) {
+  return <Modal title="Perfil do aluno" onClose={onClose} wide><div className="profile-content"><div className="profile-photo"><img src={photoUrl(s)} alt={`Retrato de ${s.full_name}`} /><span>{s.has_photo ? 'Foto do aluno' : 'Retrato ilustrativo'}</span></div><div className="profile-info"><Badge status={s.status} /><h3>{s.preferred_name || s.full_name}</h3>{s.preferred_name && <p>{s.full_name}</p>}<div className="profile-meta"><div><Hash size={17} /><span><small>Matrícula</small>{s.enrollment}</span></div><div><GraduationCap size={19} /><span><small>Turma e curso</small>{s.class_name} · {s.school_year}<small>{s.course} · {s.shift}</small></span></div><div><Mail size={17} /><span><small>E-mail</small>{s.email || 'Não informado'}</span></div></div>{s.bio && <div className="profile-bio"><span className="eyebrow">UM POUCO SOBRE MIM</span><p>{s.bio}</p></div>}<a href={`/carometro?turma=${s.class_id}`} className="text-button">Ver colegas da turma <ArrowUpRight size={16} /></a></div></div><div className="modal-actions"><button className="button danger-ghost" onClick={onDelete}><Trash2 size={17} />Excluir aluno</button><button className="button primary" onClick={onEdit}><Pencil size={17} />Editar perfil</button></div></Modal>;
+}
