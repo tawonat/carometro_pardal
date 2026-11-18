@@ -1,16 +1,40 @@
 {
-  "name": "elo-carometro", "version": "1.0.0", "private": true,
+  "name": "elo-carometro",
+  "version": "1.0.0",
+  "private": true,
   "description": "Carômetro escolar com Next.js, TypeScript e MySQL.",
-  "engines": { "node": ">=22.0.0" },
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
-    "dev": "next dev --hostname 0.0.0.0",
-    "build": "next build", "start": "next start --hostname 0.0.0.0",
+    "dev": "node scripts/dev.mjs",
+    "build": "next build",
+    "start": "next start --hostname 0.0.0.0",
     "typecheck": "next typegen && tsc --noEmit",
     "db:setup": "node --env-file=.env scripts/setup-db.mjs",
     "db:seed": "node --env-file=.env scripts/seed.mjs",
-    "test": "tsx --test tests/validation.test.ts",
-    "test:integration": "node --env-file=.env tests/integration.mjs"
+    "test": "node --import tsx --test tests/validation.test.ts",
+    "test:integration": "node --env-file=.env tests/integration.mjs",
+    "format": "prettier --write src scripts tests docs README.md package.json tsconfig.json next.config.ts .github/workflows/ci.yml"
   },
-  "dependencies": { "next": "16.4.6", "react": "19.2.4", "react-dom": "19.2.4", "mysql2": "3.24.6", "zod": "4.6.7", "lucide-react": "1.75.0", "sharp": "0.34.5" },
-  "devDependencies": { "typescript": "^5.9.3", "@types/node": "^22.19.0", "@types/react": "^19.2.0", "@types/react-dom": "^19.2.0", "tsx": "^4.21.0" }
+  "dependencies": {
+    "lucide-react": "1.75.0",
+    "mysql2": "3.24.6",
+    "next": "16.4.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "sharp": "0.35.5",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "prettier": "3.10.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "sharp": "$sharp"
+  }
 }

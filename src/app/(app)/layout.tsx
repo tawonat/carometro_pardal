@@ -5,7 +5,11 @@ import Shell from '@/components/shell';
 export const dynamic = 'force-dynamic';
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   let user;
-  try { user = await currentUser(); } catch { redirect('/login?database=1'); }
+  try {
+    user = await currentUser();
+  } catch {
+    redirect('/login?database=1');
+  }
   if (!user) redirect('/login');
   return <Shell user={user}>{children}</Shell>;
 }
